@@ -54,13 +54,13 @@ spec:
         valueFrom:
           secretKeyRef:
             name: grafana-admin-user
-            key: grafanaUsername
+            key: admin-user
             optional: false
       - name: GRAFANA_PASSWORD
         valueFrom:
           secretKeyRef:
             name: grafana-admin-user
-            key: grafanaPassword
+            key: admin-password
             optional: false
       - name: FIWARE_SERVICE
         value: {{ .Values.fiwareService }}

@@ -51,9 +51,17 @@ spec:
       - name: QUANTUM_LEAP_URL
         value: {{ .Values.quantumLeapUrl }}
       - name: GRAFANA_USERNAME
-        value: {{ .Values.grafanaUsername }}
+        valueFrom:
+          secretKeyRef:
+            name: grafana-admin-user
+            key: grafanaUsername
+            optional: false
       - name: GRAFANA_PASSWORD
-        value: {{ .Values.grafanaPassword }}
+        valueFrom:
+          secretKeyRef:
+            name: grafana-admin-user
+            key: grafanaPassword
+            optional: false
       - name: FIWARE_SERVICE
         value: {{ .Values.fiwareService }}
       - name: FIWARE_SERVICE_PATH
